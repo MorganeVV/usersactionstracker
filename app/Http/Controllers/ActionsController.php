@@ -15,6 +15,8 @@ class ActionsController extends Controller
             'reden' => ['required', 'max:255'],
         ]);
 
+        $session_id = session()->getId();
+        $validatedData['session_id'] = $session_id;
         Log::info("Contactformulier", $validatedData);
 
         return response()->json(['Het contactformulier is doorgestuurd. Uw ingevulde gegevens:', $validatedData]);
